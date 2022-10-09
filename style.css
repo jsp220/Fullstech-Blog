@@ -41,6 +41,9 @@ nav {
     color: var(--light);
 }
 
+.card {
+    max-width: 1000px;
+}
 .card-header {
     background-color: var(--laurel-green);
 }
