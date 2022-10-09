@@ -1,6 +1,45 @@
-
-
-body {
-    font-family: 'PT Sans', sans-serif;
+:root {
+    --nyanza: #e1f4cb;
+    --laurel-green: #bacba9;
+    --light: #ccc;
 }
 
+body {
+    font-family: 'PT Sans', sans-serif !important;
+    font-size: 16px;
+    background-color: #dee;
+}
+
+nav {
+    background-color: #3f4739;
+}
+
+.light {
+    color: white;
+}
+
+
+.navbar {
+    --bs-navbar-active-color: var(--light) !important;
+    --bs-navbar-color: #fff !important;
+}
+
+.navbar-brand {
+    font-size: 2 rem;
+}
+
+.navbar-brand:hover, .navbar-brand:focus {
+    color: var(--light);
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--light);
+}
+
+.card-header {
+    background-color: var(--laurel-green);
+}
+
+.card-body {
+    background-color: var(--nyanza);
+}
