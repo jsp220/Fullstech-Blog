@@ -1,3 +1,4 @@
 extras
-node_module
+node_modules
 .DS_Store
+.env
