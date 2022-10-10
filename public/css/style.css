@@ -4,16 +4,18 @@
     --nyanza: #e1f4cb;
     --laurel-green: #bacba9;
     --light: #ccc;
+    --dark: #3f4739;
 }
 
 body {
     font-family: 'PT Sans', sans-serif !important;
     font-size: 16px;
     background-color: #dee;
+    color: var(--dark);
 }
 
 nav {
-    background-color: #3f4739;
+    background-color: var(--dark);
 }
 
 .light {
@@ -46,6 +48,11 @@ nav {
 }
 .card-header {
     background-color: var(--laurel-green);
+}
+
+.card-header a {
+    text-decoration: none;
+    color: var(--dark);
 }
 
 .card-body {
