@@ -30,9 +30,16 @@ User.init(
     },
     {
         hooks: {
+            beforeBulkCreate: (newUsers) => {
+                const saltRounds = 10;
+                newUsers.forEach((user) => {
+                    user.password = bcrypt.hashSync(user.password, saltRounds);
+                })
+            },
             beforeCreate: async (newUser) => {
                 const saltRounds = 10;
                 newUser.password = await bcrypt.hash(newUser.password, saltRounds);
+                console.log(newUser.password);
                 return newUser;
             },
             beforeUpdate: async (updatedUser) => {
