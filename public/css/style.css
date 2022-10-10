@@ -5,6 +5,7 @@
     --laurel-green: #bacba9;
     --light: #ccc;
     --dark: #3f4739;
+    --less-dark: #787;
 }
 
 body {
@@ -21,7 +22,7 @@ nav {
 .light {
     color: white;
 }
-.h4 {
+.h4, .h5 {
     margin-bottom: 0;
 }
 .navbar {
@@ -57,4 +58,12 @@ nav {
 
 .card-body {
     background-color: var(--nyanza);
+}
+
+.card-text {
+    margin-bottom: 0 !important;
+}
+
+.comment-details {
+    color: var(--less-dark);
 }

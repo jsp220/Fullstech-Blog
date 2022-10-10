@@ -24,13 +24,19 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
-            include: [User, Comment]
+            include: [
+                {model: User}, 
+                {model: Comment, include: [
+                    {model: User}
+                ]}
+            ]
         });
 
         const post = postData.get({ plain: true });
 
         delete post.User.password;
 
+        console.log(post);
         res.render('single-post', { post });
         // res.json(post);
     } catch (err) {
