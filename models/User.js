@@ -34,7 +34,8 @@ User.init(
                 const saltRounds = 10;
                 newUsers.forEach((user) => {
                     user.password = bcrypt.hashSync(user.password, saltRounds);
-                })
+                });
+                return newUsers;
             },
             beforeCreate: async (newUser) => {
                 const saltRounds = 10;
