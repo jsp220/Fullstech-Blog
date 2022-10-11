@@ -1,0 +1,23 @@
+<section class="card m-auto my-2">
+    <div class="card-header">
+        <h2 class="fw-bolder h4">Edit a Post</h2>
+    </div>
+    <div class="card-body">
+        <form class="form update-post-form">
+            <div class="mb-2">
+                <label for="post-title">Title</label>
+                <input align="middle" class="form-control" type="text" id="post-title" value="{{post.title}}"/>
+            </div>
+            <div class="mb-2">
+                <label class="align-top" for="post-body">Content</label>
+                <textarea class="form-control" id="post-body">{{post.body}}</textarea>
+            </div>
+            <div class="p-2 d-flex justify-content-evenly my-1">
+                <button class="btn btn-primary" type="submit">Update</button>
+                <button class="btn btn-secondary delete-btn" type="button">Delete</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script src="/js/updatepost.js"></script>
