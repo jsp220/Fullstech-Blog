@@ -20,7 +20,7 @@ Clicking on the title of a post opens up the post and shows comments.
 
 ![Screenshot](assets/images/screenshot01.png)
 
-Click the nav button and click on "Log In" to log in or sign up.
+Click on "Log In" (on mobile, need to expand the nav menu first) to log in or sign up.
 
 ![Screenshot](assets/images/screenshot02.png)
 
