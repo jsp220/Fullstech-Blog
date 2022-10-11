@@ -21,6 +21,7 @@
         <p class="card-text comment-details col-12 col-md-4 text-end">Posted by <span class="fw-bolder">{{User.username}}</span> on {{format_date dateCreated}} </p>
     </div>
     {{/each}}
+    {{#if logged_in}}
     <div class="card-body">
         <form class="form new-comment-form">
             <div class="mb-2">
@@ -31,6 +32,11 @@
             </div>
         </form>
     </div>
+    {{else}}
+    <div class="card-body">
+        <p class="card-text fw-bolder">Please log in to leave a comment.</p>
+    </div>
+    {{/if}}
 </section>
 
 <script src="/js/newcomment.js"></script>
