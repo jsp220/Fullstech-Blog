@@ -1,7 +1,7 @@
 {{#each posts as |post|}}
 <section class="card m-auto my-2">
     <div class="card-header d-flex justify-content-between align-items-center">
-        <h2 class="fw-bolder h4"><a href="./post/{{id}}">{{title}}</a></h2>
+        <h2 class="fw-bolder h4"><a href="/post/{{id}}">{{title}}</a></h2>
         <p class="card-text">Posted by <span class="fw-bolder">{{post.User.username}}</span> on {{format_date dateCreated}}</p>
     </div>
     <div class="card-body">

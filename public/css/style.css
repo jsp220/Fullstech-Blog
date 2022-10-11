@@ -78,6 +78,10 @@ nav {
     color: var(--less-dark);
 }
 
-.form-input {
-    max-width: 800px;
+.form {
+    width: 100%;
+}
+
+.form-control {
+    width: 100%;
 }
