@@ -7,8 +7,6 @@ const updatePostHandler = async (event) => {
     const URL = document.URL;
     apiURL = `/api/post/${URL.slice(URL.lastIndexOf('/')+1)}`
     
-    console.log(apiURL);
-
     if (title) {
         const response = await fetch(apiURL, {
             method: 'PUT',
@@ -24,4 +22,22 @@ const updatePostHandler = async (event) => {
     } 
 }
 
+const deletePostHandler = async (event) => {
+    const URL = document.URL;
+    apiURL = `/api/post/${URL.slice(URL.lastIndexOf('/')+1)}`
+    
+    console.log(apiURL);
+
+    const response = await fetch(apiURL, {
+        method: 'DELETE'
+    });
+
+    if (response.ok) {
+        document.location.replace('/dashboard');
+    } else {
+        alert(response.statusText);
+    } 
+}
+
 document.querySelector('.update-post-form').addEventListener("submit", updatePostHandler);
+document.querySelector('.delete-btn').addEventListener("click", deletePostHandler);
