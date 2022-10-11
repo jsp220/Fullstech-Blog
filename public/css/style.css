@@ -44,9 +44,19 @@ nav {
     color: var(--light);
 }
 
+.log-in,
+.log-out {
+    width: 90px;
+}
+
 .card {
     max-width: 1000px;
 }
+
+.login-card {
+    max-width: 500px !important;
+}
+
 .card-header {
     background-color: var(--laurel-green);
 }
@@ -66,4 +76,8 @@ nav {
 
 .comment-details {
     color: var(--less-dark);
+}
+
+.form-input {
+    max-width: 800px;
 }

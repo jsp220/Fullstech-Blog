@@ -27,17 +27,20 @@
         <div class="collapse navbar-collapse fw-bolder" id="navbarNav">
             <ul class="navbar-nav light">
                 <li class="nav-item mx-2">
-                    <a class="nav-link active" aria-current="page" href="../">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item mx-2">
-                    <a class="nav-link" href="#">Dashboard</a>
+                    <a class="nav-link" href="/dashboard">Dashboard</a>
                 </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link" href="#">Login</a>
+                {{#if logged_in}}
+                <li class="nav-item mx-2 log-out">
+                    <a class="nav-link" id="logout" href="">Log Out</a>
                 </li>
-                <li class="nav-item mx-2">
-                    <a class="nav-link" href="#" hidden>Logout</a>
+                {{else}}
+                <li class="nav-item mx-2 log-in">
+                    <a class="nav-link" href="/login">Log In</a>
                 </li>
+                {{/if}}
             </ul>
         </div>
     </nav>
@@ -52,6 +55,10 @@
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" 
     crossorigin="anonymous">
     </script>
+
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>

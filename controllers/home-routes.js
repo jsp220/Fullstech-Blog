@@ -1,21 +1,28 @@
 const router = require('express').Router();
 const { Post, Comment, User } = require ('../models/');
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll({
-            include: [User]
-        });
-        const plainData = postData.map((post) => post.get({ plain: true }));
-
-        const posts = plainData.map((post) => {
-            delete post.User.password;
-            return post;
+            include: [{
+                model: User, 
+                attributes: { exclude: ['password'] }
+            }]
         });
 
-        console.log(posts);
-        res.render('all-posts', { posts });
-        // res.json(posts);
+        const posts = postData.map((post) => post.get({ plain: true }));
+
+        // const posts = plainData.map((post) => {
+        //     delete post.User.password;
+        //     return post;
+        // });
+
+        // console.log(posts);
+        res.render('all-posts', { 
+            posts,
+            logged_in: req.session.logged_in 
+        });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -25,16 +32,14 @@ router.get('/post/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [
-                {model: User}, 
+                {model: User, attributes: {exclude: ['password']} }, 
                 {model: Comment, include: [
-                    {model: User}
+                    {model: User, attributes: {exclude: ['password']} }
                 ]}
             ]
         });
 
         const post = postData.get({ plain: true });
-
-        delete post.User.password;
 
         console.log(post);
         res.render('single-post', { post });
@@ -43,5 +48,15 @@ router.get('/post/:id', async (req, res) => {
         res.status(500).json(err);
     }
 })
+ 
+router.get('/login', (req, res) => {
+    // If the user is already logged in, redirect the request to another route
+    if (req.session.logged_in) {
+      res.redirect('/');
+      return;
+    }
+  
+    res.render('login');
+  });
 
 module.exports = router;
