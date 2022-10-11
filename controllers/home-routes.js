@@ -41,8 +41,7 @@ router.get('/post/:id', async (req, res) => {
 
         const post = postData.get({ plain: true });
 
-        console.log(post);
-        res.render('single-post', { post });
+        res.render('single-post', { post, logged_in: req.session.logged_in });
         // res.json(post);
     } catch (err) {
         res.status(500).json(err);
@@ -56,7 +55,11 @@ router.get('/login', (req, res) => {
       return;
     }
   
-    res.render('login');
+    res.render('login', {logged_in: req.session.logged_in});
   });
+
+// router.get('*', (req, res) => {
+//     res.redirect('/');
+// })
 
 module.exports = router;

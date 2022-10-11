@@ -21,5 +21,16 @@
         <p class="card-text comment-details col-12 col-md-4 text-end">Posted by <span class="fw-bolder">{{User.username}}</span> on {{format_date dateCreated}} </p>
     </div>
     {{/each}}
-
+    <div class="card-body">
+        <form class="form new-comment-form">
+            <div class="mb-2">
+                <textarea class="form-control" placeholder="Leave a comment..." id="comment-body"></textarea>
+            </div>
+            <div class="p-2 d-flex justify-content-end my-1">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
 </section>
+
+<script src="/js/newcomment.js"></script>
