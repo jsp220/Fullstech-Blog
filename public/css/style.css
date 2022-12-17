@@ -6,13 +6,20 @@
     --light: #ccc;
     --dark: #3f4739;
     --less-dark: #787;
+    --bg-dark: #bcc;
+    --bg-light: #eff;
+}
+
+html {
+    /* background-image: linear-gradient(to bottom right, #EFF, #cdd); */
 }
 
 body {
     font-family: 'PT Sans', sans-serif !important;
     font-size: 16px;
+    height: 100vh;
     /* background-color: #dee; */
-    background-color: red;
+    background-image: linear-gradient(to bottom right, var(--bg-dark), var(--bg-light));
     color: var(--dark);
 }
 
